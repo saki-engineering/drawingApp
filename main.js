@@ -138,7 +138,25 @@ window.addEventListener('load', () => {
       });
       
     }
+
+    function initColorPalette() {
+      const joe = colorjoe.rgb('color-palette', currentColor);
+  
+      // 'done'イベントは、カラーパレットから色を選択した時に呼ばれるイベント
+      // ドキュメント: https://github.com/bebraw/colorjoe#event-handling
+      joe.on('done', color => {
+        // コールバック関数の引数からcolorオブジェクトを受け取り、
+        // このcolorオブジェクト経由で選択した色情報を取得する
+  
+        // color.hex()を実行すると '#FF0000' のような形式で色情報を16進数の形式で受け取れる
+        // draw関数の手前で定義されている、線の色を保持する変数に代入して色情報を変更する
+        currentColor = color.hex();
+      });
+    }
     
     // 初期処理を呼び出し
     initEventHandler();
+
+    // カラーパレット情報を初期化する
+    initColorPalette();
   });

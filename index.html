@@ -9,6 +9,8 @@
     <title>お絵かきアプリ</title>
     
     <link rel="stylesheet" href="style.css" type="text/css">
+    <!--colorjoeのライブラリを導入　https://github.com/bebraw/colorjoe-->
+    <link rel="stylesheet" href="colorjoe.css" type="text/css">
   </head>
 
   <body>
@@ -16,12 +18,16 @@
     <p>ブラウザ上でお絵かき！</p>
     
     <script src="main.js"></script>
+    <!--colorjoeのライブラリを導入　https://github.com/bebraw/colorjoe-->
+    <script src="colorjoe.min.js"></script>
     
     <div>
       <form name="colorform" id="pen_color_form" onsubmit="return false;">
         <p>カラーコード：<input type="text" name="colorcode" value="#000000"><input type="submit" value="送信する"></p>
       </form>
     </div>
+
+    <div id="color-palette"></div>
 
     <div class="radio">
         <input type="radio" name="tool" id="use-pen" checked>
