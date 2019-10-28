@@ -1,0 +1,44 @@
+<!doctype html>
+ 
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    
+    <title>お絵かきアプリ</title>
+    <meta name="description" content="${description}" />
+    
+    <link rel="stylesheet" href="style.css" type="text/css">
+  </head>
+
+  <body>
+    <h1>お絵かきアプリ</h1>
+    <p>ブラウザ上でお絵かき！</p>
+    
+    <script src="main.js"></script>
+    
+    <div>
+      <form name="colorform" id="pen_color_form" onsubmit="return false;">
+        <p>カラーコード：<input type="text" name="colorcode" value="#000000"><input type="submit" value="送信する"></p>
+      </form>
+    </div>
+
+    <div style="text-align:center;">
+      <p class="box" id="pen_color">ペンの色</p>
+      <button id="use-pen">ペン</button>
+      <button id="use-eraser">消しゴム</button></button>
+      <button id="clear-button">全消し</button>
+    </div>
+    
+    <div style="text-align:center;">
+      <canvas
+      id="draw-area"
+      width="400px"
+      height="400px"
+      style="border: 1px solid #000000;">
+      </canvas>
+    </div>
+  </body>
+</html>
+
