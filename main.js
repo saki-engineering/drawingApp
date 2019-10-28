@@ -114,15 +114,13 @@ window.addEventListener('load', () => {
       //フォームをsubmitするとchangePenColor関数を呼び出す
       changePenForm.addEventListener('submit', changePenColor);
       
-      // Viewタブで指定した全消しボタンを取得
-      const penButton = document.querySelector('#use-pen');
-      // clickすると「clear」という関数を呼び出す
-      penButton.addEventListener('click', write);
+      // ペンに切り替え
+      const penRadioButton = document.querySelector('#use-pen');
+      penRadioButton.addEventListener('click', write);
       
-      // Viewタブで指定した全消しボタンを取得
-      const eraserButton = document.querySelector('#use-eraser');
-      // clickすると「clear」という関数を呼び出す
-      eraserButton.addEventListener('click', erase);
+      // 消しゴムに切り替え
+      const eraserRadioButton = document.querySelector('#use-eraser');
+      eraserRadioButton.addEventListener('click', erase);
       
       // Viewタブで指定した全消しボタンを取得
       const clearButton = document.querySelector('#clear-button');
