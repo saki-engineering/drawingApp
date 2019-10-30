@@ -72,13 +72,8 @@ window.addEventListener('load', () => {
     }
   }
   
-  function write(){
-    context.globalCompositeOperation = 'source-over';
-  }
-  
-  function erase(){
-    context.globalCompositeOperation = 'destination-out';
-  }
+
+
     
   // 初期処理
   function initEventHandler() { 
@@ -88,23 +83,25 @@ window.addEventListener('load', () => {
     
     // ペンに切り替え
     const penRadioButton = document.querySelector('#use-pen');
-    penRadioButton.addEventListener('click', write);
-    
+    penRadioButton.addEventListener('click', () =>{
+      context.globalCompositeOperation = 'source-over';
+    });
     // 消しゴムに切り替え
     const eraserRadioButton = document.querySelector('#use-eraser');
-    eraserRadioButton.addEventListener('click', erase);
+    eraserRadioButton.addEventListener('click', () =>{
+      context.globalCompositeOperation = 'destination-out';
+    });
     
     // Viewタブで指定した全消しボタンを取得
     const clearButton = document.querySelector('#clear-button');
     // clickすると「clear」という関数を呼び出す
     clearButton.addEventListener('click', clear);
     
-    // PCver
+
     // マウスの動きに応じてそれぞれの関数を呼び出す
     canvas.addEventListener('mousedown', dragStart);
     canvas.addEventListener('mouseup', dragEnd);
     canvas.addEventListener('mouseout', dragEnd);
-    // 移動イベントの場合は、x/y座標を取得して、「draw」関数を呼び出し
     canvas.addEventListener('mousemove', (event) => {
       draw(event.layerX, event.layerY);
     });
