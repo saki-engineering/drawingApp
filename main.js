@@ -16,7 +16,6 @@ window.addEventListener('load', () => {
     context.beginPath();
     isDrag = true; 
   }
-  
   // 入力終了
   function dragEnd(event) {
     // パスの開始と終了座標を結んで、ドラッグ状態フラグをOFF
@@ -25,13 +24,12 @@ window.addEventListener('load', () => {
     lastPosition.x = null; 
     lastPosition.y = null;
   }
-  
   // 描画領域を透明に
   function clear() {
     // 始点x/y座標、終点x/y座標を指定
     context.clearRect(0, 0, canvas.width, canvas.height);
   }
-  
+  //描画中
   function draw(x, y) { 
     if(!isDrag) return;
 
@@ -57,6 +55,7 @@ window.addEventListener('load', () => {
     lastPosition.y = y;
   }
   
+  //フォームからペンの色変更
   function changePenColor() {
     //フォームに入力された値
     code = document.colorform.colorcode.value;
@@ -92,9 +91,8 @@ window.addEventListener('load', () => {
       context.globalCompositeOperation = 'destination-out';
     });
     
-    // Viewタブで指定した全消しボタンを取得
+    // Viewタブで指定した全消しボタンを取得→クリックでクリア
     const clearButton = document.querySelector('#clear-button');
-    // clickすると「clear」という関数を呼び出す
     clearButton.addEventListener('click', clear);
     
 
@@ -111,14 +109,8 @@ window.addEventListener('load', () => {
   function initColorPalette() {
     const joe = colorjoe.rgb('color-palette', currentColor);
 
-    // 'done'イベントは、カラーパレットから色を選択した時に呼ばれるイベント
     // ドキュメント: https://github.com/bebraw/colorjoe#event-handling
     joe.on('done', color => {
-      // コールバック関数の引数からcolorオブジェクトを受け取り、
-      // このcolorオブジェクト経由で選択した色情報を取得する
-
-      // color.hex()を実行すると '#FF0000' のような形式で色情報を16進数の形式で受け取れる
-      // draw関数の手前で定義されている、線の色を保持する変数に代入して色情報を変更する
       currentColor = color.hex();
     });
   }
