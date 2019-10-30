@@ -23,20 +23,21 @@
     
     <div>
       <form name="colorform" id="pen_color_form" onsubmit="return false;">
-        <p>カラーコード：<input type="text" name="colorcode" value="#000000"><input type="submit" value="送信する"></p>
+        <p>
+          カラーコード：<input type="text" name="colorcode" value="#000000">
+                      <input type="submit" value="送信する">
+        </p>
       </form>
     </div>
 
     <div id="color-palette"></div>
 
-    <div class="radio">
+    <form class="radio">
         <input type="radio" name="tool" id="use-pen" checked>
         <label>ペン</label>
-    </div>
-    <div class="radio">
         <input type="radio" name="tool" id="use-eraser">
         <label>消しゴム</label>
-    </div>
+    </form>
 
     <div style="text-align:center;">
       <p class="box" id="pen_color">ペンの色</p>
