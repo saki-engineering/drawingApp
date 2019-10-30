@@ -112,6 +112,8 @@ window.addEventListener('load', () => {
     // ドキュメント: https://github.com/bebraw/colorjoe#event-handling
     joe.on('done', color => {
       currentColor = color.hex();
+      document.colorform.colorcode.value = currentColor;
+      document.querySelector('#pen_color').style.backgroundColor = currentColor;
     });
   }
   
